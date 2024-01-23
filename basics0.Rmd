@@ -36,7 +36,7 @@ The RStudio interface is divided into several key areas, each serving a specific
 
 3.  *Files/Plots/Packages/Help Pane:*
 
-    -   F*iles:* Browse, open, and manage files in your working directory.
+    -   *Files:* Browse, open, and manage files in your working directory.
 
     -   *Plots:* View graphical outputs from your R code, such as plots and graphs.
 
@@ -112,18 +112,22 @@ Show/Hide Animation
 :::
 
 </details>
-
+<br>
 *Note:* You can get help on related content by selecting the dropdown list at the top of the Help tab. <!--screenshot-->
+<br>
+---
 
-|                                                                        |
-|:-----------------------------------------------------------------------|
-| As you work through these activities, remember to save your workspace. |
-| \- Save your workspace by clicking on the top menu bar:                |
-| \- File                                                                |
-| \- Save                                                                |
+------------------------------------------------------------------------
+
+As you work through these activities, remember to save your workspace.
+- Save your workspace by clicking on the top menu bar:
+- File
+- Save
+
+------------------------------------------------------------------------
 
 <br>
-
+<br>
 ## 2. Creating and Manipulating Vectors and Basic Variables
 
 <!--add infographic about the trajectory of this section (broad to narrow)-->
@@ -135,6 +139,7 @@ To create any data object, the command will begin with the a name for the new va
 **Definition - "Function":** A set of instructions defined to perform a specific task.
 
 **Definition - "Function Call":** The act of executing a function with specific arguments, if required, to produce a result. <br>
+<br>
 
 ### 2.1 Vectors
 
@@ -291,7 +296,8 @@ We have just looked at vectors, which contain variables of the same type. Now we
 
 <br>
 
-[Task 2.2.1:]{.underline} Create a variable for a pig's first name. `The first pig's first name is 'Bart'.`
+[Task 2.2.1:]{.underline} Create a variable for a pig's first name. 
+| `The first pig's first name is 'Bart'.`
 
 <details>
 
@@ -306,7 +312,8 @@ pig1.first_name <- "Bart"
 
 <br>
 
-[Task 2.2.2:]{.underline} Create a variable for a Bart's last name. `Bart's last name is 'Smith'.`
+[Task 2.2.2:]{.underline} Create a variable for a Bart's last name. 
+| `Bart's last name is 'Smith'.`
 
 <details>
 
@@ -343,11 +350,13 @@ pig1.full_name
 
 <br>
 
-Now we'll look at basic operations with **numeric and integer variables**. First we'll create height information for Bart and find out how much he's grown in height.
+Now we'll look at basic operations with **numeric and integer variables**. 
+First we'll create height information for Bart and find out how much he's grown in height.
 
 <br>
 
-[Task 2.2.4:]{.underline} Create a variable for Bart's height as a piglet: 10.
+[Task 2.2.4:]{.underline} Create a variable for Bart's height as a piglet.
+| Bart's piglet height: 10
 
 <details>
 
@@ -362,7 +371,8 @@ pig1.heightA <- 10
 
 <br>
 
-[Task 2.2.5:]{.underline} Create a variable for Bart's height now: 13.5.
+[Task 2.2.5:]{.underline} Create a variable for Bart's height now.
+| Bart's adult height: 13.5
 
 <details>
 
@@ -396,8 +406,11 @@ pig1.heightGain
 ```
 
 </details>
-
 *Hint:* "Expressing" indicates that the value will require an expression, in this case, a mathematical operation.
+
+<br>
+<details><summary>Expand for information about numeric variables and functions</summary>
+
 
 `pig1.heightA` is an 'integer' data type (whole number)
 
@@ -405,9 +418,14 @@ pig1.heightGain
 
 R can perform operations on different data types like getting the difference of a value.
 
-|                          |
-|:-------------------------|
-| Reminder! Save your work |
+</details>
+
+------------------------------------------------------------------------
+
+Reminder! Save your work
+
+------------------------------------------------------------------------
+
 
 **Additional:** To display all objects you have created, execute the 'list' function in the console: `ls()`. \> *Note:* 'l' in 'ls' is the lowercase 'L'.
 
@@ -439,7 +457,8 @@ pig1.large <- TRUE
 
 <details>
 
-<summary>Expand to view the list of Environment Variables</summary>
+
+<summary>Expand to view the list of Environment Variables (variables you have created in your environment)</summary>
 
 If you have followed the code provided in the activities exactly, the Variables list in your Environment tab should look the same as that in the image below. If it doesn't match and you are unsure why, check with the instructor.
 
@@ -532,7 +551,7 @@ median(pigs.weight)
 ```
 
 </details>
-
+<br>
 The output tells you the weight of the pig that falls between the lighter half and the heavier half of the pigs. <br>
 
 **Standard deviation:** Describes how spread out the data is. `sd()`
@@ -555,7 +574,8 @@ sd(pigs.weight)
 
 The output tells you how much the weights of the pigs vary from the average weight. - A small standard deviation means that most pigs' weights are close to the average, indicating uniformity in size. - A large standard deviation suggests a wide range of weights. <br>
 
-We can also execute a **'summary'** to generate several descriptive statistics at the same time.
+<br>
+We can also execute a **'summary'** of our vector objects of the pigs' weights to generate several descriptive statistics at the same time.
 
 `summary()`
 
@@ -591,7 +611,7 @@ Create a histogram for the pigs' weights.
 
 <details>
 
-<summary>Show Codeand Histogram</summary>
+<summary>Show Code and Histogram</summary>
 
 ```{r}
 hist(pigs.weight)
@@ -612,16 +632,16 @@ Some of the frequently used parameters are:
 -   `main` : The title of the plot
 
     -   e.g., `main = "This is the Plot Title"`
-
+<br>
 -   `xlab` : The x-axis label
 
     -   e.g., `xlab = "The X Label"`
-
+<br>
 -   `ylab` : The y-axis label
 
     -   e.g., ylab = "The Y Label"
 
--   <br>
+<br>
 
 [Task 3.2.2:]{.underline}
 
@@ -694,9 +714,7 @@ We can import data multiple ways. You'll import here through "File" in the main 
 
 Download and save [this Excel spreadsheet of Income data](docs/income.xlsx){:target="\_blank"} - *Note: Please remember where the income.xlsx file is saved (usually in a “downloads” or “desktop” folder).*
 
-```         
-![Import Tab](images/rstudio-15.png)
-```
+
 
 [Task 4.1.3:]{.underline} Import Import the dataset of Income data
 
