@@ -119,7 +119,7 @@ library(tidyverse)
 it every time you start a new session.
 
 ## 2. Getting data
-
+<br>
 [Task 2.1:]{.underline} Download data about mussels. We will use this
 data for the tasks in this activity.
 
@@ -131,7 +131,7 @@ your task below.
 the
 Tidyverse](https://www.kaggle.com/code/rtatman/manipulating-data-with-the-tidyverse/notebook){:target="\_blank"}.
 
-### 3: Preparing our Workspace
+## 3: Preparing our Workspace
 
 **Before moving ahead,** ensure that you have installed and loaded the
 tidyverse package.
@@ -139,7 +139,7 @@ tidyverse package.
 In this activity, we will be working with a table containing information
 about mussels. Each row represents one mussel, and each column
 represents a specific type of data pertaining to the mussels.
-
+<br>
 [Task 3.1:]{.underline} Read in your data set.
 
 | data set file name: `histopaths.csv` (unless you changed the filename after downloading) through either of the following to ways:
@@ -157,18 +157,11 @@ button on the far right hand side of the files panel, across from the
 Home button, immediately above the ‘Modified’ column header. This will
 open the file explorer and you can search from your entire computer.
 
-<button onclick="toggle(&#39;gif1&#39;)">
 
-Show/Hide Animation
+<details><summary>Show gif of import dataset</summary>
+![](images/tidyverse-02.gif)
+</summary>
 
-</button>
-
-<div id="gif1">
-
-```         
-  <img src="images/tidyverse-02.gif"> <br>
- </div>
-```
 
 -   [Option b:]{.underline}
 
@@ -233,11 +226,13 @@ Now, we've imported our data and previewed the first 10 rows of our
 mussel data, but how big is it?
 
 We can find out the dimensions (rows and columns) using the `dim()`
-function. \| Parameter \| - data set name
+function. 
+| Parameter 
+|     - data set name
 
 <br> [Task 3.3:]{.underline}
 
-Get the dimensions of the mussel data.
+Get the dimensions of the mussel dataset.
 
 <details>
 
@@ -259,18 +254,19 @@ separate commands, creating two data objects, or utilize piping to
 create one data object for your target object. 
 
 In pipes, you can choose to have a newline (shift+enter on a mac) after the %\>% symbol or leave it all on one line.
-
+<br>
 ### 4.1 Before Piping
 
 Piping allows us to perform multiple functions at once to achieve a
 single result. So far, we have looked at commands that perform single
 operations. 
+
 - Create a variable whose value is a single word
 | (`y <- "word"`) 
 - Create a variable whose value by mathematical expression 
 | (`x <- 1-2`) 
 - viewing the dimentions of a data set
-| (\`dim(musselData))
+| (`dim(musselData)`)
 
 What if we want to get a list of column names in our data set, AND sort
 it alphabetically? 
@@ -285,6 +281,7 @@ We can sort vectors into ascending and descending order (low to high or
 high to low) using the `sort()` function. First, let's look at each of
 these functions on their own.
 
+<br>
 [Task 4.1.1:]{.underline} Create an object containing the list of column
 names from our mussel data. \| Name this object 'musselDataColumnNames'
 
@@ -301,7 +298,8 @@ musselDataColumnNames <- names(musselData)
 <br>
 
 [Task 4.1.2:]{.underline} Create an object containing the list of column
-names from our mussel data that is sorted alphabetically. \| Name this
+names from our mussel data that is sorted alphabetically. 
+| Name this
 object 'alphsMusselDataColumnNames'
 
 <details>
