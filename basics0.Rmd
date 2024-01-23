@@ -3,8 +3,12 @@ title: "2a-Getting Started for Mere Mortals"
 author: "DSC Chloe Farr"
 date: '2024-01-18'
 output:
-  html_document: default
+  html_document:
+    toc: true
+    toc_depth: 3  # Adjust the depth of the TOC (number of heading levels to include)
+    toc_float: true  # Optional: makes the TOC floating
   pdf_document: default
+
 customjs: http://code.jquery.com/jquery-1.4.2.min.js
 layout: default
 nav_order: 3
@@ -115,19 +119,19 @@ Show/Hide Animation
 <br>
 *Note:* You can get help on related content by selecting the dropdown list at the top of the Help tab. <!--screenshot-->
 <br>
----
 
 ------------------------------------------------------------------------
 
 As you work through these activities, remember to save your workspace.
 - Save your workspace by clicking on the top menu bar:
-- File
-- Save
+  - File
+  - Save
 
 ------------------------------------------------------------------------
 
 <br>
 <br>
+
 ## 2. Creating and Manipulating Vectors and Basic Variables
 
 <!--add infographic about the trajectory of this section (broad to narrow)-->
