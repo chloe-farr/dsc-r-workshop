@@ -218,37 +218,79 @@ ggplot(data = chocolateData, aes(x = cocoa_percent, y = rating)) +
 First things first, we need to quickly clean up our dataframe for bar charts. Copy and paste the following code into your console, and execute.
 <br>
 ```{r}
-#create a column (vector) with just the first word of the bean_type() cell, where the second parameter of word() is the number of words to include in the new value.
+
 chocolateData$bean_type_simplified <- word(chocolateData$bean_type, 1)
 
-#remove punctuation using gsub() by globally substituting any punctuation using the regex (regular expression) '[[:punct:]]' with nothing '', in the vector where the replacements will be made: chocolateData$bean_type_simplified.
 chocolateData$bean_type_simplified <- gsub('[[:punct:]]', '', chocolateData$bean_type_simplified)
+chocolateData$bean_type_simplified <- trimws(chocolateData$bean_type_simplified)
 
-#create (not add) a vector of the names of beans that occur in the bean_type_simplified vector of our dataset more than 20 times.
-commonBeanTypes <- chocolateData %>% 
+chocolateData <- chocolateData %>%
+filter(str_detect(bean_type_simplified, "\\S")) # This ensures the string contains at least one non-whitespace character
+
+commonBeanTypes <- chocolateData %>%
   select(bean_type_simplified) %>%
   group_by(bean_type_simplified) %>%
   count() %>%
   filter(n > 20) %>%
-  select(bean_type_simplified)
+  ungroup() %>%
+  mutate(bean_type_simplified = as.factor(bean_type_simplified))
 
-#create a subset (a new dataset) only containing the chocolate bars made using common beans
+
+# Filter chocolateData to only include common beans
 chocolateData_commonBeans <- chocolateData %>%
   filter(bean_type_simplified %in% commonBeanTypes$bean_type_simplified)
-
-#You can ignore the Column Specification comment in the output. It indicates the column specification, which describes the data types of various columns after conversion, and shows that several columns have been confirmed as character columns.
 ```
 <br>
 
 A bar chart illustrates *categories* along the x axis and the count of observations from each category on the y axis.
 
+To make a bar chart, you need the data (categories, and values relevate to those categories), and the categories the data will be separated by (each representing one bar).
 
+The first 5 rows of the bars made of common beans:
+```{r}
+chocolateData_commonBeans %>% head(5)
+```
+
+The bars will represent the following categories:
+```{r}
+commonBeanTypes
+```
+
+With the code above, you now have 
+- A dataset `chocolateData_commonBeans`: containing the chocolate bars made with the most common beans
+- A vector `commonBeanTypes` list of the common bean types, which will be used as the categories for the x-axis.
+
+
+To make the bar plot, 
 [Task 2.2.1:]{.underline} Create a basic bar chart illustrating the frequency that chocolate bars are being made in different countries.
 | Country bar was made in: `broad_bean_origin`
 
 <details><summary>Show code</summary>
 ```{r}
-
+ggplot(chocolateData_commonBeans, aes(x = chocolateData_commonBeans$bean_type_simplified)) + geom_bar()
 ```
 </details>
 | *Hint:* geom type = "bar"
+
+<br>
+
+**Definition - facets:** A way of breaking apart a plot of a specific data frame so that each level of a the target factor is shown in a separate, smaller chart.
+<br>
+A faceted bar chart is like a grid of mini bar charts, each showing a different slice of the data side by side for comparison. 
+
+We can facet a bar chart in a few different ways. 
+
+
+Where the previous bar chart has one piece of information in each bar, we will now add two. 
+| Instead of `aes(x=)` representing just the categories that each bar will represent, we will add a `fill=` parameter for the subgroups of each column. 
+`ggplot(data, aes(x = category, fill = subgroup))`
+
+We will then add 
+`+ geom_bar(position = "fill") + facet_wrap(~facet_variable)`
+
+-`geom_bar()` creates a stacked bar chart with proportions
+  - 'fill' means that each proportion of the bar will total to 100%
+  
+```{r}
+need to find a column with few enough unique values to show a good visual
+```
