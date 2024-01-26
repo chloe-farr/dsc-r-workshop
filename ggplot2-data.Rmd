@@ -48,7 +48,7 @@ In this activity, you will make a scatter plot, bar chart, and a line chart.
 | Package name: tidyverse
 
 <details>
-<summary>Show Code</summary>
+<summary>Check Your Code</summary>
 ```{r eval=FALSE}
 install.packages("ggthemes") #then, as always, type 'enter' or 'return' to submit the command for execution
 install.packages("janitor")
@@ -73,7 +73,7 @@ library(janitor)
 
 <details>
 
-<summary>Show Code</summary>
+<summary>Check Your Code</summary>
 ```{r echo=TRUE, eval=FALSE}
 #if your file cannot be found, enter `getwd()` into your console and it will tell you the file path you should most likely use. If you cannot find the file, use Option a.
 chocolateData <- read_csv("Desktop/flavors_of_cacao.csv") %>%
@@ -99,7 +99,7 @@ chocolateData <- read_csv("~/Documents/GitHub/dsc-r-workshop/flavors_of_cacao.cs
 [Task 1.3:]{.underline} Preview the first 5 rows of your chocolate data.
 
 <details>
-<summary>Show Code</summary>
+<summary>Check Your Code</summary>
 ```{r}
 #preview first 5 lines of chocolateData
 chocolateData %>% head(5)
@@ -143,12 +143,14 @@ Let's apply the ggplot command above to create a scatter plot.
 
 **Definition - Scatter plot:** A plot with two axes, each representing a different variable. Each individual observation is showing using a single point. The position of the point is determined by the value of the variables assigned to the x and y axes for that observation.
 
+<img src="images/chocolate_bar_scatter.png" alt="Chocolate bar pseudo scatter plot" style="width:420px;"/>
+
 [Task 2.1.1:]{.underline} Make a scatter plot of the cocoa percentage and the rating a chocolate bar received.
 | Using chocolate data : `chocolateData`
 | X-axis = Cocoa percentage: `cocoa_percent`
 | Y-axis = Rating a chocolate bar received: `rating`
 
-<details><summary>Show code</summary>
+<details><summary>Check Your Code</summary>
 ```{r}
 ggplot(data = chocolateData, aes(x = cocoa_percent, y = rating)) +
     geom_point() # then add a layer of points
@@ -190,7 +192,7 @@ Function for adding a smooth line to a plot: `geom_smooth(method = "")`
 | Y-axis = Rating a chocolate bar received: `rating`
 | Line of best fit: `geom_smooth(method = "lm")`
 
-<details><summary>Show code</summary>
+<details><summary>Check Your Code</summary>
 ```{r}
 ggplot(data = chocolateData, aes(x = cocoa_percent, y = rating)) +
   geom_point() + # then add a layer of points
@@ -204,7 +206,7 @@ We're also going to add labels and custom colors using the `labs()` function and
 
 [Task 2.1.3:]{.underline} Add descriptive axis labels and a title to your scatter plot.
 
-<details><summary>Show code</summary>
+<details><summary>Check Your Code</summary>
 ```{r}
 #you can use the following labels or make your own.
 ggplot(data = chocolateData, aes(x = cocoa_percent, y = rating)) +
@@ -265,7 +267,7 @@ To make the bar plot,
 [Task 2.2.1:]{.underline} Create a basic bar chart illustrating the frequency that chocolate bars are being made in different countries.
 | Country bar was made in: `broad_bean_origin`
 
-<details><summary>Show code</summary>
+<details><summary>Check Your Code</summary>
 ```{r}
 ggplot(chocolateData_commonBeans, aes(x = chocolateData_commonBeans$bean_type_simplified)) + geom_bar()
 ```
@@ -292,5 +294,5 @@ We will then add
   - 'fill' means that each proportion of the bar will total to 100%
   
 ```{r}
-need to find a column with few enough unique values to show a good visual
+#need to find a column with few enough unique values to show a good visual
 ```

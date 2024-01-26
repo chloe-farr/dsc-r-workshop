@@ -3,7 +3,10 @@ title: "3-Data Manipulation"
 author: "DSC Chloe Farr"
 date: '2024-01-18'
 output:
-  html_document: default
+  html_document:
+    toc: true
+    toc_depth: 3  
+    toc_float: true  #makes the TOC floating
   pdf_document: default
 customjs: http://code.jquery.com/jquery-1.4.2.min.js
 layout: default
@@ -64,7 +67,7 @@ function.
 | Package name: tidyverse
 
 <details>
-<summary>Show Code</summary>
+<summary>Check Your Code</summary>
 ```{r eval=FALSE}
 install.packages("tidyverse") #then, as always, type 'enter' or 'return' to submit the command for execution
 ```
@@ -107,7 +110,7 @@ an unquoted name that it interprets as a package name.
 
 <details>
 
-<summary>Show Code</summary>
+<summary>Check Your Code</summary>
 
 ```{r eval = FALSE}
 library(tidyverse)
@@ -173,7 +176,7 @@ open the file explorer and you can search from your entire computer.
 
 <details>
 
-<summary>Show Code</summary>
+<summary>Check Your Code</summary>
 ```{r echo=TRUE, eval=FALSE}
 #if your file cannot be found, enter `getwd()` into your console and it will tell you the file path you should most likely use. If you cannot find the file, use Option a.
 musselData <- read.csv("Desktop/histopaths.csv")
@@ -203,7 +206,7 @@ display the first number of rows.
 
 <details>
 
-<summary>Show code</summary>
+<summary>Check Your Code</summary>
 
 ```{r eval=FALSE}
 # name of data set name: "musselData"
@@ -236,7 +239,7 @@ Get the dimensions of the mussel dataset.
 
 <details>
 
-<summary>Show code</summary>
+<summary>Check Your Code</summary>
 
 ```{r}
 ## name of data set name: "musselData"
@@ -287,7 +290,7 @@ names from our mussel data. \| Name this object 'musselDataColumnNames'
 
 <details>
 
-<summary>Show code</summary>
+<summary>Check Your Code</summary>
 
 ```{r}
 musselDataColumnNames <- names(musselData)
@@ -304,7 +307,7 @@ object 'alphsMusselDataColumnNames'
 
 <details>
 
-<summary>Show code</summary>
+<summary>Check Your Code</summary>
 
 ```{r}
 alphaMusselDataColumnNames <- sort(musselDataColumnNames)
@@ -334,7 +337,7 @@ containing a sorted vector of the column names.
 
 <details>
 
-<summary>Show code</summary>
+<summary>Check Your Code</summary>
 
 ```{r}
 #names(musselData) creates a vector object of the column names from our mussel data
@@ -368,7 +371,7 @@ have created so far, except `musselData`
 
 <details>
 
-<summary>Show code</summary>
+<summary>Check Your Code</summary>
 
 ```{r}
 # 'musselDataNamesPeek <-' creates a new variable
@@ -469,7 +472,7 @@ ecological area column
 | Column name: `coastal_ecological_area`
 
 <details>
-<summary>Show code</summary>
+<summary>Check Your Code</summary>
 ```{r}
 #data set %>% select the column titled `coastal_ecological_area` and view the first 5 items.
 cleanMusselData %>% select(dermo) %>% head(5)
@@ -490,7 +493,7 @@ Select all the columns from your mussel data that do *not* start with
 "abnormality"
 
 <details>
-<summary>Show code</summary>
+<summary>Check Your Code</summary>
 ```{r}
 cleanMusselData %>% select(-abnormality) %>% head(5)
 ```
@@ -522,7 +525,7 @@ cleanMusselData %>% select(starts_with("digestive")) %>% head(5)
 [Task 4.3.3:]{.underline} Select all the columns from our cleaned mussel data that start with "dermo" using the `starts_with()` function.
 
 <details>
-<summary>Show code</summary>
+<summary>Check Your Code</summary>
 ```{r}
 #selecting all columns (and their values) from and cleanMusselData whose names begin with "dermo"
 cleanMusselData %>% select(starts_with("dermo")) %>% head(5)
@@ -552,7 +555,7 @@ Filter all the rows from your mussel data where `abnormality` is greater than
 
 
 <details>
-<summary>Show code</summary>
+<summary>Check Your Code</summary>
 ```{r}
 cleanMusselData %>% filter(abnormality > 3)
 ```
@@ -566,7 +569,7 @@ Filter all the rows from your mussel data where `coastal_ecological_area` is
 "Lake Michigan".
 
 <details>
-<summary>Show code</summary>
+<summary>Check Your Code</summary>
 ```{r}
 cleanMusselData %>% filter(coastal_ecological_area == "Lake Michigan")
 ```
@@ -578,7 +581,7 @@ cleanMusselData %>% filter(coastal_ecological_area == "Lake Michigan")
 `specific_location` is "Tutka Bay".
 
 <details>
-<summary>Show code</summary>
+<summary>Check Your Code</summary>
 ```{r}
 cleanMusselData %>% filter(sex == "Female" & specific_location == "Tutka Bay")
 ```
@@ -626,7 +629,7 @@ We will now be using piping to create new variables in our dataset with modified
 - The value will be TRUE if the abnormality value is over (`>`) 0.
 
 
-<details><summary>Show code</summary>
+<details><summary>Check Your Code</summary>
 ```{r}
 cleanMusselData <- cleanMusselData %>% mutate(abnormal = (abnormality > 0))
 cleanMusselData
@@ -638,7 +641,7 @@ cleanMusselData
 <br>
 [Task 4.5.2:]{.underline} Add a new variable parasites that is TRUE if a mussel has more than 1 `unidentified_organism` in it and a `wet_weight` of less than `0.5` oz.
 
-<details><summary>Show code</summary>
+<details><summary>Check Your Code</summary>
 ```{r} 
 ```
 </details>
@@ -656,7 +659,7 @@ When using `arrange()`, you specify the column name that you wish to organize by
 [Task 4.6.1:]{.underline} Sort the musselData data frame so that the longest mussels are first.
 
 
-<details><summary>Show code</summary>
+<details><summary>Check Your Code</summary>
 ```{r}
 cleanMusselData %>% filter(sex == "Male" & state_name == "Mississippi")
 ```
@@ -671,7 +674,7 @@ cleanMusselData %>% filter(sex == "Male" & state_name == "Mississippi")
 [Task 4.7.1:]{.underline} Use the `summary()` function to create a single data frame with the mean and median length.
 
 
-<details><summary>Show code</summary>
+<details><summary>Check Your Code</summary>
 ```{r}
 #musselDataSummary <- summarize('cleanMusselData')
 ```
@@ -686,7 +689,7 @@ cleanMusselData %>% filter(sex == "Male" & state_name == "Mississippi")
 
 [Task 4.8.2:</ins> Summarize length by `coastal_ecological_area`.
 
-<details><summary>Show code</summary>
+<details><summary>Check Your Code</summary>
 ```{r}
 cleanMusselData %>% filter(sex == "Male" & state_name == "Mississippi")
 ```
