@@ -18,6 +18,9 @@ editor_options:
 ---
 
 ```{r setup, include=FALSE}
+#This block is only for whoever is editing in in R and knitting it to an html file. It is not part of the workshop instructions. 
+
+
 options(repos = c(CRAN = "https://cran.rstudio.com"))
 knitr::opts_chunk$set(echo = TRUE)
 #make sure the packages are installed before running this file. If they aren't, you can run these commented install.packages() commands in the console. DO NOT UNCOMMENT THESE IN THIS DOCUMENT.
@@ -62,7 +65,7 @@ function.
 
 <br>
 
-[Task 1.1:]{.underline} Install the tidyverse package.
+#### [Task 1.1:]{.underline} Install the tidyverse package.
 
 | Package name: tidyverse
 
@@ -106,7 +109,7 @@ an unquoted name that it interprets as a package name.
 
 <br>
 
-[Task 1.2:]{.underline} Load the 'tidyverse' library.
+#### [Task 1.2:]{.underline} Load the 'tidyverse' library.
 
 <details>
 
@@ -143,7 +146,8 @@ In this activity, we will be working with a table containing information
 about mussels. Each row represents one mussel, and each column
 represents a specific type of data pertaining to the mussels.
 <br>
-[Task 3.1:]{.underline} Read in your data set.
+
+#### [Task 3.1:]{.underline} Read in your data set.
 
 | data set file name: `histopaths.csv` (unless you changed the filename after downloading) through either of the following to ways:
 | Name your variable: `musselData`
@@ -200,7 +204,7 @@ display the first number of rows.
 
 <br>
 
-[Task 3.2:]{.underline} Look at the first 5 rows of our mussel data.
+#### [Task 3.2:]{.underline} Look at the first 5 rows of our mussel data.
 
 *Hint:* `head(*dataSetName*, *numberOfRows*)`
 
@@ -233,7 +237,8 @@ function.
 | Parameter 
 |     - data set name
 
-<br> [Task 3.3:]{.underline}
+<br> 
+#### [Task 3.3:]{.underline}
 
 Get the dimensions of the mussel dataset.
 
@@ -285,7 +290,7 @@ high to low) using the `sort()` function. First, let's look at each of
 these functions on their own.
 
 <br>
-[Task 4.1.1:]{.underline} Create an object containing the list of column
+#### [Task 4.1.1:]{.underline} Create an object containing the list of column
 names from our mussel data. \| Name this object 'musselDataColumnNames'
 
 <details>
@@ -300,7 +305,7 @@ musselDataColumnNames <- names(musselData)
 
 <br>
 
-[Task 4.1.2:]{.underline} Create an object containing the list of column
+#### [Task 4.1.2:]{.underline} Create an object containing the list of column
 names from our mussel data that is sorted alphabetically. 
 | Name this
 object 'alphsMusselDataColumnNames'
@@ -331,7 +336,7 @@ creating only 1 variable with "nesting".
 **Definition - Nesting:** Use one function as a parameter of another function. 
 - e.g., `function1(function2(parameter))`
 
-[Task 4.1.3:]{.underline} In this task, use nesting to create 1 variable
+#### [Task 4.1.3:]{.underline} In this task, use nesting to create 1 variable
 containing a sorted vector of the column names. 
 | Name this variable: `alphabeticalColumnNames`
 
@@ -362,7 +367,8 @@ sequentially, separated by the pipe symbol `%>%`.
 | Previewing our data with 2 criteria: criteria1() %\>% criteria2() %\>% criteria3()
 | e.g. If we want to only see the first few column names (not ordered alphabetically), we can do this by 1. names(data set) %\>% head(numberColumns)
 
-<br> [Task 4.2.1:]{.underline} In this task, use piping to create 1
+<br> 
+#### [Task 4.2.1:]{.underline} In this task, use piping to create 1
 variable containing the first 5 column names. 
 | Do not use objects you
 have created so far, except `musselData` 
@@ -467,7 +473,8 @@ To get a specific column, use piping and the `select()` function on your
 data set. 
 - The parmeter is the name of the column you want to access.
 
-<br> [Task 4.3.1:]{.underline} Preview the values in the coastal
+<br> 
+#### [Task 4.3.1:]{.underline} Preview the values in the coastal
 ecological area column 
 | Column name: `coastal_ecological_area`
 
@@ -487,7 +494,7 @@ function, but with a `-` before the string we want to
 exclude.
 
 <br>
-[Task 4.3.2:]{.underline}
+#### [Task 4.3.2:]{.underline}
 
 Select all the columns from your mussel data that do *not* start with
 "abnormality"
@@ -522,7 +529,7 @@ cleanMusselData %>% select(starts_with("digestive")) %>% head(5)
 
 <br>
 
-[Task 4.3.3:]{.underline} Select all the columns from our cleaned mussel data that start with "dermo" using the `starts_with()` function.
+#### [Task 4.3.3:]{.underline} Select all the columns from our cleaned mussel data that start with "dermo" using the `starts_with()` function.
 
 <details>
 <summary>Check Your Code</summary>
@@ -548,7 +555,7 @@ To select items (rows, *not* columns), we use the <code>filter()</code>
 function.
 
 <br>
-[Task 4.4.1:]{.underline}
+#### [Task 4.4.1:]{.underline}
 
 Filter all the rows from your mussel data where `abnormality` is greater than
 3.
@@ -563,7 +570,7 @@ cleanMusselData %>% filter(abnormality > 3)
 | *Hint:* `>` is the ‘greater than’ operator.
 
 <br>
-[Task 4.4.2:]{.underline}
+#### [Task 4.4.2:]{.underline}
 
 Filter all the rows from your mussel data where `coastal_ecological_area` is
 "Lake Michigan".
@@ -577,7 +584,7 @@ cleanMusselData %>% filter(coastal_ecological_area == "Lake Michigan")
 | *Hint:* `==` is used for "equal to"
 
 <br>
-[Task 4.4.3:]{.underline} Filter all the rows from musselData where `sex` is "Female" and
+#### [Task 4.4.3:]{.underline} Filter all the rows from musselData where `sex` is "Female" and
 `specific_location` is "Tutka Bay".
 
 <details>
@@ -623,7 +630,7 @@ We will now be using piping to create new variables in our dataset with modified
 
 
 <br>
-[Task 4.5.1:]{.underline} Add a new boolean (true/false) variable (column) to the dataset that says whether a mussel's abnormality is greater than 0.
+#### [Task 4.5.1:]{.underline} Add a new boolean (true/false) variable (column) to the dataset that says whether a mussel's abnormality is greater than 0.
 - Name the variable: `abnormal_mussels`
 - The column name for weight is called `abnormality`
 - The value will be TRUE if the abnormality value is over (`>`) 0.
@@ -656,7 +663,7 @@ The `arrange()` function enables you to order your data frame according to the v
 When using `arrange()`, you specify the column name that you wish to organize by. In this case, it will arrange the data based on the combined count of men and women (a new variable that we recently formulated using `mutate()`).
 
 <br>
-[Task 4.6.1:]{.underline} Sort the musselData data frame so that the longest mussels are first.
+#### [Task 4.6.1:]{.underline} Sort the musselData data frame so that the longest mussels are first.
 
 
 <details><summary>Check Your Code</summary>
@@ -671,7 +678,7 @@ cleanMusselData %>% filter(sex == "Male" & state_name == "Mississippi")
 
 
 <br>
-[Task 4.7.1:]{.underline} Use the `summary()` function to create a single data frame with the mean and median length.
+#### [Task 4.7.1:]{.underline} Use the `summary()` function to create a single data frame with the mean and median length.
 
 
 <details><summary>Check Your Code</summary>
@@ -684,10 +691,10 @@ cleanMusselData %>% filter(sex == "Male" & state_name == "Mississippi")
 
 ### 4.8 Analyzing groups with group_by
 
-[Task 4.8.1:]{.underline} Group by `state_name` and summarize the length of mussels by `state`.
+#### [Task 4.8.1:]{.underline} Group by `state_name` and summarize the length of mussels by `state`.
 
 
-[Task 4.8.2:</ins> Summarize length by `coastal_ecological_area`.
+#### [Task 4.8.2:</ins> Summarize length by `coastal_ecological_area`.
 
 <details><summary>Check Your Code</summary>
 ```{r}
