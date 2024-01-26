@@ -83,10 +83,17 @@ Use the code editor if you want to develop more complex, reusable, and maintaina
 
 ### Working in the Console
 
-The console is a lot like working in Terminal (mac) or Command Prompt/PowerShell (PC). 
-- Each new command line begins with the angle bracket `>` also known as the ‘prompt’ symbol. <br>
+The console is a lot like working in Terminal (mac) or Command Prompt/PowerShell (PC). Each new command line begins with the angle bracket `>` also known as the ‘prompt’ symbol. <br>
 
-You will type the commands into the Console after the most recent angle bracket `>` also known as the ‘prompt’ symbol. 
+You will type the commands into the Console after the most recent angle bracket `>`.
+
+*command line:* lines of code in your console.
+
+*‘prompt’ symbol* `>` : Each new command starts with this.
+
+*execute:* run your command by pressing the 'enter' or 'return' key on your keyboard.
+
+
 - When you are ready to execute ('run') the command, type ‘enter’ or ‘return’ key on your keyboard. 
 - The output to the command will appear below your command.
 
@@ -106,7 +113,7 @@ You will type the commands into the Console after the most recent angle bracket 
 -   Sometimes the output can be extensive and show more information than you expected
   - E.g., when you load in a package (we will discuss packages more in Activity 3). <br>
 
-For all tasks in this workshop, enter your commands in the Console (bottom left).<br>
+For all tasks in this workshop, enter your commands in the Console (bottom left) (top tabs say 'console', 'terminal', (sometimes 'render') and 'background jobs').<br>
 
 <br>
 
@@ -123,7 +130,8 @@ For all tasks in this workshop, enter your commands in the Console (bottom left)
 help("vector") # then type 'enter' or 'return'
 ```
 
-<br> `help("vector")` will provide you with information about the mean function in RStudio. 
+<br> 
+`help("vector")` will provide you with information about the mean function in RStudio. 
 - The help information will be displayed in the Console following your command.
 
 <br>
@@ -175,8 +183,15 @@ To create any data object:
     variableName <- "word"
 
 **Definition - "Function":** A set of instructions defined to perform a specific task.
+-E.g., help() : 'help' is a function to get information
+  
 
 **Definition - "Function Call":** The act of executing a function with specific arguments, if required, to produce a result. <br>
+-E.g., help("integer")
+  - This calls the 'help'  function with the argument (aka parameter) "integer"
+  - It will return information about an 'integer' object type.
+ 
+
 <br>
 
 ### 2.1 Variables and Basic Data Types
@@ -200,8 +215,7 @@ Let's start by looking at types of variables.
 
 <br>
 
-[Task 2.1.1:]{.underline} Create a variable for a pig's first name. 
-| `The first pig's first name is 'Bart'.`
+#### [Task 2.1.1:]{.underline} Create a variable for a pig's first name. `The first pig's first name is 'Bart'.`
 
 <details>
 
@@ -216,8 +230,7 @@ pig1.first_name <- "Bart"
 
 <br>
 
-[Task 2.1.2:]{.underline} Create a variable for a Bart's last name. 
-| `Bart's last name is 'Smith'.`
+#### [Task 2.1.2:]{.underline} Create a variable for a Bart's last name. `Bart's last name is 'Smith'.`
 
 <details>
 
@@ -232,10 +245,11 @@ pig1.last_name <- "Smith"
 
 <br>
 
-[Task 2.1.3:]{.underline}
+#### [Task 2.1.3:]{.underline}
 
 Create a variable that equals Bart's first and last name, then display the full name in the console <br>
 
+The `paste()` function combines two strings and inserts a space between them. `paste()` takes two arguments, like `paste(string1, string2)`
 <details>
 
 <summary>Check Your Code</summary>
@@ -250,12 +264,10 @@ pig1.full_name
 
 </details>
 
-*Hint:* To combine two strings separated by a space, use the `paste()` function.
 
 <br>
 
-Now we'll look at basic operations with **numeric and integer variables**. 
-First we'll create height information for Bart and find out how much he's grown in height.
+Now we'll look at basic operations with **numeric and integer variables**. First we'll create height information for Bart and find out how much he's grown in height.
 
 <br>
 
@@ -263,8 +275,7 @@ First we'll create height information for Bart and find out how much he's grown 
 
 
 
-[Task 2.1.4:]{.underline} Create a variable for Bart's height as a piglet.
-| Bart's piglet height: 10
+#### [Task 2.1.4:]{.underline} Create a variable for Bart's height as a piglet: 10
 
 <details>
 
@@ -279,8 +290,7 @@ pig1.heightA <- 10
 
 <br>
 
-[Task 2.1.5:]{.underline} Create a variable for Bart's height now.
-| Bart's adult height: 22
+#### [Task 2.1.5:]{.underline} Create a variable for Bart's height now: 22.3
 
 <details>
 
@@ -288,14 +298,14 @@ pig1.heightA <- 10
 
 ```{r}
 #Assign the value of Bart's current height
-pig1.heightB <- 22
+pig1.heightB <- 22.3
 ```
 
 </details>
 
 <br>
 
-[Task 2.1.6:]{.underline}
+#### [Task 2.1.6:]{.underline}
 
 Now create a variable expressing the amount he's grown.
 
@@ -317,8 +327,6 @@ pig1.heightGain
 *Hint:* "Expressing" indicates that the value will require an expression, in this case, a mathematical operation.
 
 <br>
-<details><summary>Expand for information about numeric variables and functions</summary>
-
 
 `pig1.heightA` is an 'integer' data type (whole number)
 
@@ -326,16 +334,12 @@ pig1.heightGain
 
 R can perform operations on different data types like getting the difference of a value.
 
-</details>
 
 ------------------------------------------------------------------------
 
 Reminder! Save your work
 
 ------------------------------------------------------------------------
-
-
-    **Additional:** To display all objects you have created, execute the 'list' function in the console: `ls()`. \> *Note:* 'l' in 'ls' is the lowercase 'L'.
 
     **Additional:** To remove data objects from your environment, execute the 'remove' function in the console: `rm()`.
 
@@ -348,7 +352,7 @@ We can denote if Bart is small or large with a boolean value.
 
 <br>
 
-[Task 2.1.7:]{.underline} **REWORK** default *pig1.size* Create two variables (pig1.mini and pig1.large) denoting that Bart is a large pig.
+#### [Task 2.1.7:]{.underline} Create two variables (pig1.mini and pig1.large) which indicate that Bart is a large pig and not a mini pig.
 
 <details>
 
@@ -366,13 +370,6 @@ pig1.large <- TRUE
 
 <details>
 
-
-Additional: Use the ls() function to see all of the variables in our environment so far.
-
-```{r}
-ls()
-```
-
 <br>
 
 ### 2.2 Vectors
@@ -381,18 +378,16 @@ A vector is a 1-dimensional list of items that are of the same data type (all te
 
 To create a vector object, you will use the `c()` function. <br>
 
-- The 'c' stands for 'combine' or 'concatenate.' 
+- The 'c' stands for 'combine'. 
 - It's used to create a vector by grouping individual values into a list-like structure.
 
     -   Think of it as placing items into a container where each item remains distinct and can be individually accessed.
 
-        -   For example, `vector1 <- c(val1, val2)` creates a vector named 'vector1' containing the elements 'val1' and 'val2' as separate items in a sequence, not as a single merged item.
+        -   For example, `vector1 <- c(value1, value2)` creates a vector named 'vector1' containing the elements 'value1' and 'value2' as separate items in a sequence, not as a single merged item.
 
     -   A value in a vector can be accessed by using square brackets and its index (the value's place in the vector), where **1** is the first index.
 
-        -   `vector1[1]` will output: 'val1'
-
-    *Note:* We will use the term 'concatenate' later to merge strings. These have different meanings
+        -   `vector1[1]` will output: 'value1'
 
 <br>
 
@@ -400,7 +395,7 @@ As you might have seen if you tested the help() function by looking up informati
 
 <br>
 
-[Task 2.2.1:]{.underline} Make a vector for the following weight values of miniature goats. Name your variable 'goat.weight'
+#### [Task 2.2.1:]{.underline} Make a vector for the following weight values of miniature goats. Name your variable 'goat.weights'
 
 | `Goat weights: 13.3, 17.2, 14.8, 14.6, 12.4`
 
@@ -410,8 +405,8 @@ As you might have seen if you tested the help() function by looking up informati
 
 ```{r}
 # The period between 'goat' and 'weight' has no special purpose. 
-# It only shows the person reading the code that 'weight' is information that pertains to 'goat' 
-goat.weight <- c(13.3, 17.2, 14.8, 14.6, 12.4)
+# It only shows the person reading the code that 'weights' is information that pertains to the goats
+goat.weights <- c(13.3, 17.2, 14.8, 14.6, 12.4)
 ```
 
 </details>
@@ -421,37 +416,38 @@ goat.weight <- c(13.3, 17.2, 14.8, 14.6, 12.4)
 The command you just ran has now appeared in your console (bottom left window)
 - the goat.weight vector is now listed in the Environment tab (top right window) under [Values]{.underline}.<br>
 
-If at any point you want to view the value of a variable or data associated with a data object, simply enter the variable name and type 'enter' or 'return' to execute.
 
 <br>
 
-[Task 2.2.2:]{.underline} Display (aka 'print') the contents of the vector containing the goat weights.
+#### [Task 2.2.2:]{.underline} Show the contents of the vector containing the goat weights.
+
+If at any point you want to view the value of a variable, use the `print()` function with the name of the variable name and type 'enter' or 'return' to execute.
 
 <details>
 
 <summary>Check Your Code</summary>
 
 ```{r}
-goat.weight
+print(goat.weights)
 ```
 
 </details>
 
 <br>
 
-[Task 2.2.3:]{.underline} Display the weight of the second goat in the vector.
+#### [Task 2.2.3:]{.underline} Display the weight of the second goat in the vector.
 
 <details>
 
 <summary>Check Your Code</summary>
 
 ```{r}
-goat.weight[2]
+goat.weights[2]
 ```
 
 </details>
 
-*Hint:* *`data_object_name`*`[index]`
+*Hint:* `data_object_name[indexNumber]`
 
 <br>
 
@@ -460,7 +456,7 @@ You have just worked with numeric vectors. Now let's move to string vectors.
 <img src="images/rstudio-basics-goats.png" alt="a row of goats" style="width:420px;"/>
 
 <br>
-[Task 2.2.4:]{.underline} Make a vector for the following name values of miniature goats. Name your variable 'goat.name'
+#### [Task 2.2.4:]{.underline} Make a vector for the following name values of miniature goats. Name your variable 'goat.name'
 
 `Goat names: baby, pickles, cookie, sparkle, gabbie`
 
@@ -482,7 +478,7 @@ To get the length of a vector, we can use the <code>length()</code> function.
 
 <br>
 
-[Task 2.2.5:]{.underline} Print (display) the length of the vector of miniature goat names.
+#### [Task 2.2.5:]{.underline} Print (display) the length of the vector of miniature goat names.
 
     *Note:* In a script (code editor), you often need to use the print() function explicitly to see the output, especially when running multiple lines of code or within functions. However, in the console, R automatically displays the output of expressions upon execution of the command.
 
@@ -533,17 +529,18 @@ In this section, we'll be focusing on
 
 ### 3.1 Basic statistical measures
 
-The function names for the following three statistical measures (mean, median, standard deviation) are quite intutive. 
+The function names for the following three statistical measures (mean, median, standard deviation) are quite intuitive. 
 - It is just the name or abbreviation of the measure, 
   - where the argument is the object containing the set of values we are analyzing. - Each function takes the vector as its argument.
 
-These three functions are designed for sets of numerical and decimal values. If run on other types (text, boolean), result will be `NA`.
+These three functions are designed for sets of numerical and decimal values. If run on other types (string, aka text, and boolean, aka true/false), result will be `NA`.
 
+
+#### [Task 3.1.1:]{.underline}
 For this task, we will use a new vector object containing weights for a set of pigs.
 
-[Task 3.1.1:]{.underline}
-
 Create a vector object with the weights of a set of pigs. Name your variable 'pigs.weight'
+
 
 `Weights of pigs: 22, 27, 19, 25, 12, 22, 18`
 
@@ -559,33 +556,34 @@ pigs.weight <- c(22, 27, 19, 25, 12, 22, 18)
 
 <br>
 
+#### [Task 3.1.2:]{.underline} 
 **Mean:** the average value in a set.
 
-This function calculates the sum of the in the set and divides the sum by the number of items in the set. `mean()`
+The `mean()` function calculates the sum of the in the set and divides the sum by the number of items in the set.
 
-<br>
+Write and execute a command that outputs the mean value of the pigs' weights.
 
-[Task 3.1.2:]{.underline} Write and execute a command that outputs the mean value of the pigs' weights
 
 <details>
 
 <summary>Check Your Code</summary>
 
 ```{r}
+# output the average weight of all of the pigs
 mean(pigs.weight)
 ```
 
 </details>
 
-This output is the average weight of all of the pigs
+
 
 <br>
 
-**Median:** The middle value in a sorted set (e.g. lowest - highest). `median()`
-
-<br> [Task 3.1.3:]{.underline}
+#### [Task 3.1.3:]{.underline}
 
 Write and execute a command that outputs the median value of the pigs' weights
+
+**Median:** The middle value in a sorted set (e.g. lowest - highest). `median()`
 
 <details>
 
@@ -599,11 +597,18 @@ median(pigs.weight)
 <br>
 The output tells you the weight of the pig that falls between the lighter half and the heavier half of the pigs. <br>
 
+<br> 
+
+#### [Task 3.1.4:]{.underline}
 **Standard deviation:** Describes how spread out the data is. `sd()`
 
-<br> [Task 3.1.4:]{.underline}
-
 Write and execute a command that outputs the standard deviation of the pigs' weights
+
+
+The output tells you how much the weights of the pigs vary from the average weight. 
+- A small standard deviation means that most pigs' weights are close to the average, indicating uniformity in size. 
+- A large standard deviation suggests a wide range of weights. <br>
+
 
 <details>
 
@@ -617,18 +622,13 @@ sd(pigs.weight)
 
 </details>
 
-The output tells you how much the weights of the pigs vary from the average weight. 
-- A small standard deviation means that most pigs' weights are close to the average, indicating uniformity in size. 
-- A large standard deviation suggests a wide range of weights. <br>
-
 <br>
-We can also execute a **'summary'** of our vector objects of the pigs' weights to generate several descriptive statistics at the same time.
 
-`summary()`
-
-<br> [Task 3.1.5:]{.underline}
+#### [Task 3.1.5:]{.underline}
 
 Display a summary of values pertaining to the pigs' weights
+
+We can execute a **'summary'** to generate several descriptive statistics at the same time. `summary()`
 
 <details>
 
@@ -646,8 +646,6 @@ summary(pigs.weight)
 
 **Histogram:** A graph used for understanding and analysing the distribution of values in a vector.
 
-`hist()`
-
 A histogram illustrates: 
 - Where data points tend to cluster 
 - The variability of data 
@@ -655,9 +653,10 @@ A histogram illustrates:
 
 <br>
 
-[Task 3.2.1:]{.underline}
+#### [Task 3.2.1:]{.underline}
 
-Create a histogram for the pigs' weights.
+Create a histogram for the pigs' weights using the histogram function `hist()`
+- Parameter: vector of pig weights
 
 <details>
 
@@ -673,7 +672,8 @@ hist(pigs.weight)
 
 <br>
 
-The histogram will appear in the Plots tab (bottom right quadrant if you haven't modified your RStudio layout).
+
+[Task 3.2.2:]{.underline} Create a histogram for the pigs' weights, with axes labels.
 
 We can also pass in additional parameters to control the way our plot looks.
 
@@ -693,9 +693,7 @@ Some of the frequently used parameters are:
 
 <br>
 
-[Task 3.2.2:]{.underline}
-
-Create a histogram for the pigs' weights, with axes labels.
+In your histogram for the pigs' weights, use:
 
 -   X-label: "Weight"
 -   Y-label: "Frequency"
@@ -728,19 +726,8 @@ hist(pigs.weight,main='Histogram of Pig Weight',xlab='Weight')
 
 </details>
 
-<br>
+The histogram will appear in the Plots tab (bottom right quadrant if you haven't modified your RStudio layout).
 
-Additional: Use the ls() function to see all of the variables in our environment so far.
-
-<details>
-
-<summary>Check Your Code</summary>
-
-```{r}
-ls()
-```
-
-</details>
 
 <br>
 
@@ -760,15 +747,14 @@ R can handle multiple file types:
 -   SPSS (another specialized statistics software)
 -   Data scraped from the web or via an API.
 
-We can import data multiple ways. You'll import here through "File" in the main menu. We'll look at other ways in the following activity pages.
 
-[Task 4.1.1]{.underline}
+#### [Task 4.1.1]{.underline}
 
 Download and save [this Excel spreadsheet of Income data](docs/income.xlsx){:target="\_blank"} - *Note: Please remember where the income.xlsx file is saved (usually in a “downloads” or “desktop” folder).*
 
 
 
-[Task 4.1.3:]{.underline} Import the dataset of Income data
+#### [Task 4.1.2:]{.underline} Import the dataset of Income data
 
 -   From the top menu bar, select...
 
@@ -846,7 +832,7 @@ income
 
 We can see now that our data frame `income` contains 10 objects (rows), and 4 variables (columns) - It can be inferred that this data relates to 10 people - The values with each person are: - id (in lieu of a name) (dbl) - gender (char) - income (dbl) - experience (dbl)
 
-<ins>Task 4.1.3:</ins>
+#### [Task 4.1.3:]{.underline}
 
 Display a summary of statistics for the `income` data.
 
@@ -868,7 +854,7 @@ In 3.2 we made a histogram to visualize the distribution of the pig weights. Rem
 
 To extract a vector (column) from our data frame, we will pass in `_dataframeName_$_columnName_`, where the name of our data is separated by the name identifying a single set of values within that data frame.
 
-<ins>Task 4.2.1</ins>
+#### [Task 4.2.1:]{.underline}
 
 Display the vector of data relating to 'experience' in a histogram. - X-label: 'Experience' - Title: 'Histogram of Experience' <br>
 
@@ -904,7 +890,7 @@ In this case, the height of a cell is equal to the number of observations fallin
 ```{r}
 #breaks is equal to the number of intervals
 #You can add the custom labels if you would like `main='Histogram of Experience',xlab='Experience', `
-hist(income$experience, breaks=4)
+hist(income$experience, breaks=3)
 ```
 
 </details>
