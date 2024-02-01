@@ -126,7 +126,8 @@ it every time you start a new session.
 
 ## 2. Getting data
 <br>
-[Task 2.1:]{.underline} Download data about mussels. We will use this
+
+#### [Task 2.1:]{.underline} Download data about mussels. We will use this
 data for the tasks in this activity.
 
 Download [here](http://bit.ly/2wfjTx3){:target="\_blank"}. Note that you
@@ -149,15 +150,16 @@ represents a specific type of data pertaining to the mussels.
 
 #### [Task 3.1:]{.underline} Read in your data set.
 
-| data set file name: `histopaths.csv` (unless you changed the filename after downloading) through either of the following to ways:
+| data set file name: `histopaths.csv` (unless you changed the file name after downloading) through either of the following to ways:
 | Name your variable: `musselData`
 
--   [Option a:]{.underline}
-
-    Click the **Files** tab in the lower right panel. Navigate to the
-    **histopaths.csv** file, then click on this file, and click **Import
-    data set**. In the pop-out window, change the data set’s name to
-    **musselData**, then click **Import**.
+To import:
+- Click the **Files** tab in the lower right panel
+- Navigate to the **histopaths.csv** file
+- then click on this file
+- and click **Import data set**
+- In the pop-out window, change the data set’s name to **musselData**
+- then click **Import**.
 
 If your file isn't visible in the main Files window, click the ...
 button on the far right hand side of the files panel, across from the
@@ -229,16 +231,18 @@ purposes. Your output will be much longer!):
 head(musselData[,1:4], n=5)
 ```
 
+<br> 
+
+#### [Task 3.3:]{.underline} Find out the dimensions of the table, i.e., number of rows and columns. 
+
+We can find out the dimensions (rows and columns) using the`dim()` function. 
+
 Now, we've imported our data and previewed the first 10 rows of our
 mussel data, but how big is it?
 
-We can find out the dimensions (rows and columns) using the `dim()`
-function. 
 | Parameter 
 |     - data set name
 
-<br> 
-#### [Task 3.3:]{.underline}
 
 Get the dimensions of the mussel dataset.
 
@@ -263,6 +267,7 @@ create one data object for your target object.
 
 In pipes, you can choose to have a newline (shift+enter on a mac) after the %\>% symbol or leave it all on one line.
 <br>
+
 ### 4.1 Before Piping
 
 Piping allows us to perform multiple functions at once to achieve a
@@ -270,28 +275,26 @@ single result. So far, we have looked at commands that perform single
 operations. 
 
 - Create a variable whose value is a single word
-| (`y <- "word"`) 
+  - `y <- "word"` 
 - Create a variable whose value by mathematical expression 
-| (`x <- 1-2`) 
-- viewing the dimentions of a data set
-| (`dim(musselData)`)
+  - `x <- 1-2`
+- viewing the dimensions of a data set
+  - `dim(musselData)`
 
 What if we want to get a list of column names in our data set, AND sort
 it alphabetically? 
 - There are 2 ways that we can do this without the
 tidyverse package based on what we've already learned.
 
+<br>
+
+#### [Task 4.1.1:]{.underline} Create an object containing the list of column names from our mussel data. 
+
 To get a list of our column names (in this case, resulting in a vector,
 because all of the column names are characters), we can use the
 `names()` function.
 
-We can sort vectors into ascending and descending order (low to high or
-high to low) using the `sort()` function. First, let's look at each of
-these functions on their own.
-
-<br>
-#### [Task 4.1.1:]{.underline} Create an object containing the list of column
-names from our mussel data. \| Name this object 'musselDataColumnNames'
+| Name this object 'musselDataColumnNames'
 
 <details>
 
@@ -305,10 +308,14 @@ musselDataColumnNames <- names(musselData)
 
 <br>
 
-#### [Task 4.1.2:]{.underline} Create an object containing the list of column
-names from our mussel data that is sorted alphabetically. 
-| Name this
-object 'alphsMusselDataColumnNames'
+#### [Task 4.1.2:]{.underline} Create an object containing the list of column names from our mussel data that is sorted alphabetically. 
+
+We can sort vectors into ascending and descending order (low to high or
+high to low) using the `sort()` function. First, let's look at each of
+these functions on their own.
+
+
+| Name this object 'alphaMusselDataColumnNames'
 
 <details>
 
@@ -368,6 +375,7 @@ sequentially, separated by the pipe symbol `%>%`.
 | e.g. If we want to only see the first few column names (not ordered alphabetically), we can do this by 1. names(data set) %\>% head(numberColumns)
 
 <br> 
+
 #### [Task 4.2.1:]{.underline} In this task, use piping to create 1
 variable containing the first 5 column names. 
 | Do not use objects you
@@ -474,6 +482,7 @@ data set.
 - The parmeter is the name of the column you want to access.
 
 <br> 
+
 #### [Task 4.3.1:]{.underline} Preview the values in the coastal
 ecological area column 
 | Column name: `coastal_ecological_area`
@@ -494,6 +503,7 @@ function, but with a `-` before the string we want to
 exclude.
 
 <br>
+
 #### [Task 4.3.2:]{.underline}
 
 Select all the columns from your mussel data that do *not* start with
@@ -555,6 +565,7 @@ To select items (rows, *not* columns), we use the <code>filter()</code>
 function.
 
 <br>
+
 #### [Task 4.4.1:]{.underline}
 
 Filter all the rows from your mussel data where `abnormality` is greater than
@@ -570,6 +581,7 @@ cleanMusselData %>% filter(abnormality > 3)
 | *Hint:* `>` is the ‘greater than’ operator.
 
 <br>
+
 #### [Task 4.4.2:]{.underline}
 
 Filter all the rows from your mussel data where `coastal_ecological_area` is
@@ -584,6 +596,7 @@ cleanMusselData %>% filter(coastal_ecological_area == "Lake Michigan")
 | *Hint:* `==` is used for "equal to"
 
 <br>
+
 #### [Task 4.4.3:]{.underline} Filter all the rows from musselData where `sex` is "Female" and
 `specific_location` is "Tutka Bay".
 
@@ -630,6 +643,7 @@ We will now be using piping to create new variables in our dataset with modified
 
 
 <br>
+
 #### [Task 4.5.1:]{.underline} Add a new boolean (true/false) variable (column) to the dataset that says whether a mussel's abnormality is greater than 0.
 - Name the variable: `abnormal_mussels`
 - The column name for weight is called `abnormality`
@@ -644,7 +658,7 @@ cleanMusselData
 </details>
 | *Hint:* `wet_weight > 10`
 
-> **HERE** 
+> **STOP HERE** 
 <br>
 [Task 4.5.2:]{.underline} Add a new variable parasites that is TRUE if a mussel has more than 1 `unidentified_organism` in it and a `wet_weight` of less than `0.5` oz.
 
