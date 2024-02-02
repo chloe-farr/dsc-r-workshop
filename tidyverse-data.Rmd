@@ -189,7 +189,7 @@ musselData <- read.csv("Desktop/histopaths.csv")
 ```
 
 ```{r load-data, echo=FALSE, results='hide'}
-musselData <- read.csv("/Users/chloe/Documents/UVic/DSC/DSC Workshops- My Assignments/R Studio/histopaths.csv")
+musselData <- read.csv("/Users/chloefarr/Documents/GitHub/dsc-r-workshop/histopaths.csv")
 ```
 </details>
 
