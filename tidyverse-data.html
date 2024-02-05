@@ -1775,27 +1775,33 @@ alphabeticalColumnNames &lt;- sort(names(musselData))</code></pre>
 <code>names()</code> is the <code>sort()</code> function. <br></div>
 <p>As you might imagine, nesting could result in very long commands that
 would be hard to interpret. There is a cleaner way to do this than
-nesting: Piping! —</p>
+nesting: Piping!</p>
+<hr />
 </div>
 </div>
 <div id="piping" class="section level3">
 <h3>4.2 Piping</h3>
 <p>To pipe a command instead of nesting, we will enter the commands
 sequentially, separated by the pipe symbol <code>%&gt;%</code>.</p>
-<div class="line-block">Creating a new variable with 2 criteria:
-newVariable &lt;- criteria1() %&gt;% criteria2() %&gt;%
-criteria3()<br />
-Previewing our data with 2 criteria: criteria1() %&gt;% criteria2()
-%&gt;% criteria3()<br />
-e.g. If we want to only see the first few column names (not ordered
+<ul>
+<li>Creating a new variable with 2 criteria: newVariable &lt;-
+criteria1() %&gt;% criteria2()</li>
+<li>Previewing our data with 2 criteria: criteria1() %&gt;% criteria2()
+<ul>
+<li>E.g., If we want to only see the first few column names (not ordered
 alphabetically), we can do this by 1. names(data set) %&gt;%
-head(numberColumns)</div>
+head(numberColumns)</li>
+</ul></li>
+</ul>
 <p><br></p>
-<div id="task-4.2.1-in-this-task-use-piping-to-create-1" class="section level4">
-<h4><u>Task 4.2.1:</u> In this task, use piping to create 1</h4>
-<p>variable containing the first 5 column names. | Do not use objects
-you have created so far, except <code>musselData</code> | Name this
-variable: <code>musselDataNamesPeek</code></p>
+<div id="task-4.2.1-in-this-task-use-piping-to-create-1-variable-containing-the-first-5-column-names." class="section level4">
+<h4><u>Task 4.2.1:</u> In this task, use piping to create 1 variable
+containing the first 5 column names.</h4>
+<ul>
+<li>Do not use objects you have created so far, except
+<code>musselData</code></li>
+<li>Name this variable: <code>musselDataNamesPeek</code></li>
+</ul>
 <details>
 <summary>
 Check Your Code
@@ -1815,9 +1821,10 @@ musselDataNamesPeek</code></pre>
 </details>
 <div class="line-block"><em>Hint</em>: the parameter of
 <code>names()</code> is the <code>head()</code> function. <br></div>
+<p><br></p>
 <p>If you want to simply view what the first five column names are, but
 don’t need to reference them later, you don’t need to create a new
-variable</p>
+variable.</p>
 <details>
 <summary>
 Show code for previewing with piping
@@ -1836,29 +1843,35 @@ mussels that have spawned - stored in the
 <code>gonadal_index_description</code> column (vector) - Previewing only
 the mussels from Tampa that haven’t spawned</p>
 <p>To do this, we need to look at Operators.</p>
-<div class="line-block"><strong>Definition - “Operators”:</strong>
-Special symbols or keywords used to perform operations on arguments,
-with logical operators specifically designed for connecting or modifying
-boolean (true/false) logic statements.<br />
- <strong>Operators</strong><br />
-- Logical operators<br />
-    - means “less than”<br />
-    - = means “less than or equal to”<br />
-    - &gt; means “greater than”<br />
-    - &gt;= means “greater than or equal to”<br />
-    - == means “exactly equal to”<br />
-    - != means “not equal to”<br />
-<br />
-- Connecting logical statements:<br />
-    - x | y means “x or y”<br />
-    - x &amp; y means “x and y”</div>
+<p><strong>Definition - “Operators”:</strong> Special symbols or
+keywords used to perform operations on arguments, with logical operators
+specifically designed for connecting or modifying boolean (true/false)
+logic statements. <br></p>
+<p><strong>Operators</strong></p>
+<ul>
+<li><p>Logical operators</p>
+<ul>
+<li><p>&lt; means “less than”</p></li>
+<li><p>&lt;= means “less than or equal to”</p></li>
+<li><p>&gt; means “greater than”</p></li>
+<li><p>&gt;= means “greater than or equal to”</p></li>
+<li><p>== means “exactly equal to”</p></li>
+<li><p>!= means “not equal to”</p></li>
+</ul></li>
+<li><p>Connecting logical statements:</p>
+<ul>
+<li>x | y means “x or y”</li>
+<li>x &amp; y means “x and y”</li>
+</ul></li>
+</ul>
 <hr />
 <p>Before we start working with our data, we need to make sure it is
 CLEAN! This means that every cell has a value (not NA).</p>
 <p>For our purposes, we will make a new variable
 <code>cleanMusselData</code> containing the first 10 rows, and only the
 columns that have data in every cell. You can learn more about cleaning
-data in other workshops….</p>
+data in other workshops…. <strong>ADD LINKS TO OTHER
+WORKSHOPS</strong></p>
 <p>Copy and paste the following into your console and execute (‘enter’
 or ‘return’ key):</p>
 <pre class="r"><code>cleanMusselData &lt;- musselData %&gt;% head(10) %&gt;% select_if(~ any(!is.na(.)))</code></pre>
@@ -1890,27 +1903,28 @@ want to access.</p>
 Check Your Code
 </summary>
 <pre class="r"><code>#data set %&gt;% select the column titled `coastal_ecological_area` and view the first 5 items.
-cleanMusselData %&gt;% select(dermo) %&gt;% head(5)</code></pre>
-<pre><code>##   dermo
-## 1      
-## 2      
-## 3      
-## 4      
-## 5</code></pre>
+cleanMusselData %&gt;% select(coastal_ecological_area) %&gt;% head(5)</code></pre>
+<pre><code>##             coastal_ecological_area
+## 1 Alaska South Central - Cook Inlet
+## 2 Alaska South Central - Cook Inlet
+## 3 Alaska South Central - Cook Inlet
+## 4 Alaska South Central - Cook Inlet
+## 5 Alaska South Central - Cook Inlet</code></pre>
 </details>
 <div class="line-block"><em>Hint:</em> Begin with the name of the data
 set, followed by your select</div>
 <p>function passing in the column name as the parameter.</p>
-<p>To select all of the columns from our data set that do <em>not</em>
-start with specific text, we do the inverse, again using the
-<code>select()</code> function, but with a <code>-</code> before the
-string we want to exclude.</p>
 <p><br></p>
 </div>
 <div id="task-4.3.2" class="section level4">
 <h4><u>Task 4.3.2:</u></h4>
 <p>Select all the columns from your mussel data that do <em>not</em>
-start with “abnormality”</p>
+start with “abnormality”.</p>
+<p><br> To select all of the columns from our data set that do
+<em>not</em> start with specific text, we do the inverse, again using
+the <code>select()</code> function, but with a <code>-</code> before the
+string we want to exclude.</p>
+<br>
 <details>
 <summary>
 Check Your Code

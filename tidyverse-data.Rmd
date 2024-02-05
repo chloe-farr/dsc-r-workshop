@@ -363,25 +363,24 @@ alphabeticalColumnNames <- sort(names(musselData))
 
 As you might imagine, nesting could result in very long commands that
 would be hard to interpret. There is a cleaner way to do this than
-nesting: Piping! ---
+nesting: Piping! 
+
+---
 
 ### 4.2 Piping
 
 To pipe a command instead of nesting, we will enter the commands
 sequentially, separated by the pipe symbol `%>%`.
 
-| Creating a new variable with 2 criteria: newVariable \<- criteria1() %\>% criteria2() %\>% criteria3()
-| Previewing our data with 2 criteria: criteria1() %\>% criteria2() %\>% criteria3()
-| e.g. If we want to only see the first few column names (not ordered alphabetically), we can do this by 1. names(data set) %\>% head(numberColumns)
+- Creating a new variable with 2 criteria: newVariable \<- criteria1() %\>% criteria2()
+- Previewing our data with 2 criteria: criteria1() %\>% criteria2()
+  - E.g., If we want to only see the first few column names (not ordered alphabetically), we can do this by 1. names(data set) %\>% head(numberColumns)
 
 <br> 
 
-#### [Task 4.2.1:]{.underline} In this task, use piping to create 1
-variable containing the first 5 column names. 
-| Do not use objects you
-have created so far, except `musselData` 
-| Name this variable:
-`musselDataNamesPeek`
+#### [Task 4.2.1:]{.underline} In this task, use piping to create 1 variable containing the first 5 column names. 
+- Do not use objects you have created so far, except `musselData` 
+- Name this variable: `musselDataNamesPeek`
 
 <details>
 
@@ -402,10 +401,10 @@ musselDataNamesPeek
 </details>
 
 | *Hint*: the parameter of `names()` is the `head()` function. <br>
+<br>
 
-If you want to simply view what the first five column names are, but
-don't need to reference them later, you don't need to create a new
-variable
+If you want to simply view what the first five column names are, but don't need to reference them later, you don't need to create a new
+variable.
 
 <details>
 
@@ -427,19 +426,27 @@ Now, we may want to add more contitions to our commands, like
 
 To do this, we need to look at Operators.
 
-| **Definition - "Operators":** Special symbols or keywords used to perform operations on arguments, with logical operators specifically designed for connecting or modifying boolean (true/false) logic statements.
-|  **Operators**
-| - Logical operators
-|     - means "less than"
-|     - = means "less than or equal to"
-|     - \> means "greater than"
-|     - \>= means "greater than or equal to"
-|     - == means "exactly equal to"
-|     - != means "not equal to"
-| 
-| - Connecting logical statements:
-|     - x \| y means "x or y"
-|     - x & y means "x and y"
+ **Definition - "Operators":** Special symbols or keywords used to perform operations on arguments, with logical operators specifically designed for connecting or modifying boolean (true/false) logic statements.
+ <br>
+ 
+**Operators**
+
+- Logical operators
+
+   - \< means "less than"
+   
+   - \<= means "less than or equal to"
+   
+   - \> means "greater than"
+   
+   - \>= means "greater than or equal to"
+   
+   - == means "exactly equal to"
+   
+   - != means "not equal to"
+- Connecting logical statements:
+     - x \| y means "x or y"
+     - x & y means "x and y"
 
 ------------------------------------------------------------------------
 
@@ -450,7 +457,7 @@ This means that every cell has a value (not NA).
 For our purposes, we will make a new variable `cleanMusselData`
 containing the first 10 rows, and only the columns that have data in
 every cell. You can learn more about cleaning data in other
-workshops....
+workshops.... **ADD LINKS TO OTHER WORKSHOPS**
 
 Copy and paste the following into your console and execute ('enter' or
 'return' key):
@@ -491,24 +498,23 @@ ecological area column
 <summary>Check Your Code</summary>
 ```{r}
 #data set %>% select the column titled `coastal_ecological_area` and view the first 5 items.
-cleanMusselData %>% select(dermo) %>% head(5)
+cleanMusselData %>% select(coastal_ecological_area) %>% head(5)
 ```
 </details>
 | *Hint:* Begin with the name of the data set, followed by your select
 function passing in the column name as the parameter.
 
-To select all of the columns from our data set that do *not* start with
-specific text, we do the inverse, again using the `select()`
-function, but with a `-` before the string we want to
-exclude.
 
 <br>
 
 #### [Task 4.3.2:]{.underline}
 
-Select all the columns from your mussel data that do *not* start with
-"abnormality"
+Select all the columns from your mussel data that do *not* start with "abnormality".
 
+<br>
+To select all of the columns from our data set that do *not* start with specific text, we do the inverse, again using the `select()` function, but with a `-` before the string we want to exclude.
+
+<br>
 <details>
 <summary>Check Your Code</summary>
 ```{r}
