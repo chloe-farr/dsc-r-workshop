@@ -189,7 +189,7 @@ musselData <- read.csv("Desktop/histopaths.csv")
 ```
 
 ```{r load-data, echo=FALSE, results='hide'}
-musselData <- read.csv("/Users/chloefarr/Documents/GitHub/dsc-r-workshop/histopaths.csv")
+musselData <- read.csv("/Users/chloe/Documents/GitHub/dsc-r-workshop/histopaths.csv")
 ```
 </details>
 
@@ -342,10 +342,9 @@ creating only 1 variable with "nesting".
 
 **Definition - Nesting:** Use one function as a parameter of another function. 
 - e.g., `function1(function2(parameter))`
-
-#### [Task 4.1.3:]{.underline} In this task, use nesting to create 1 variable
-containing a sorted vector of the column names. 
-| Name this variable: `alphabeticalColumnNames`
+<br>
+#### [Task 4.1.3:]{.underline} In this task, use nesting to create 1 variable containing a sorted vector of the column names. 
+-  Name this variable: `alphabeticalColumnNames`
 
 <details>
 
@@ -358,23 +357,24 @@ alphabeticalColumnNames <- sort(names(musselData))
 ```
 
 </details>
-
+<br>
 | *Hint*: the parameter of `names()` is the `sort()` function. <br>
-
-As you might imagine, nesting could result in very long commands that
-would be hard to interpret. There is a cleaner way to do this than
-nesting: Piping! 
+<br>
+As you might imagine, nesting could result in very long commands that would be hard to interpret. There is a cleaner way to do this than nesting: Piping! 
 
 ---
 
 ### 4.2 Piping
 
-To pipe a command instead of nesting, we will enter the commands
-sequentially, separated by the pipe symbol `%>%`.
+To pipe a command instead of nesting, we will enter the commands sequentially, separated by the pipe symbol `%>%`.
 
 - Creating a new variable with 2 criteria: newVariable \<- criteria1() %\>% criteria2()
+
 - Previewing our data with 2 criteria: criteria1() %\>% criteria2()
-  - E.g., If we want to only see the first few column names (not ordered alphabetically), we can do this by 1. names(data set) %\>% head(numberColumns)
+
+  - E.g., If we want to only see the first few column names (not ordered alphabetically), we can do this by:<br>
+  
+  1. names(data set) %\>% head(numberColumns)
 
 <br> 
 
@@ -399,12 +399,11 @@ musselDataNamesPeek
 ```
 
 </details>
-
-| *Hint*: the parameter of `names()` is the `head()` function. <br>
+<br>
+*Hint*: the parameter of `names()` is the `head()` function. <br>
 <br>
 
-If you want to simply view what the first five column names are, but don't need to reference them later, you don't need to create a new
-variable.
+If you want to simply view what the first five column names are, but don't need to reference them later, you don't need to create a new variable.
 
 <details>
 
@@ -419,9 +418,12 @@ names(musselData) %>% head(5)
 ------------------------------------------------------------------------
 
 Now, we may want to add more contitions to our commands, like 
-- Previewing only the column names that begin with `cestode` - Previewing only the mussels from Tampa Bay - stored in the `general_location` column (vector) 
-- Previewing only the mussels that have spawned 
-- stored in the `gonadal_index_description` column (vector) 
+- Previewing only the column names that begin with `cestode` 
+
+- Previewing only the mussels from Tampa Baystored in the `general_location` column (vector) 
+
+- Previewing only the mussels that have spawned dtored in the `gonadal_index_description` column (vector) 
+
 - Previewing only the mussels from Tampa that haven't spawned
 
 To do this, we need to look at Operators.
